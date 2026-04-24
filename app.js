@@ -1,6 +1,10 @@
 // Creating a react element : an object
 // The second parameter, which is an object contains the attibutes and the third parameter contains the content which can be the elements children
 
+import React from "react";
+import ReactDOM from "react-dom/client"
+
+
 const parent = React.createElement(
     "div",
     {id : "parent"},

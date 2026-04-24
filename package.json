@@ -1,0 +1,29 @@
+{
+  "name": "learning-react",
+  "version": "1.0.0",
+  "description": "just a react practice application",
+
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SayantanGhosh20/react-notes.git"
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "Sayantan Ghosh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SayantanGhosh20/react-notes/issues"
+  },
+  "homepage": "https://github.com/SayantanGhosh20/react-notes#readme",
+  "devDependencies": {
+    "parcel": "^2.16.4"
+  },
+  "dependencies": {
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5"
+  }
+}
