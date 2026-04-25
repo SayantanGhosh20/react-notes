@@ -1,26 +1,51 @@
 
-1. [ ] React is a JavaScript library
-2. [ ] The react code we write is converted to JS at the end
-3. [ ] DOM manipulation is the most costly operation in a website.
-4. [ ] In React we create react-components which are objects.
-5. [ ] When rendered these react-components (objects) are converted to HTML.
-6. [ ] In this lesson we are using CDN links to bring React into our project.
-7. [ ] Two CDN links are being used, one for the core react functionality and the other for DOM manipulation. In code they are written accordingly as React and ReactDOM
-8. [ ] In this lesson we are covering the following React methods :
+### Overall
+
+1. [ ] React is a JavaScript Library developed by Facebook (no Meta)
+2. [ ] It is bare-bones library but has a very rich ecosystem of official and third party libraries
+3. [ ] The React code we write is converted to JS at the end using transpilation.
+4. [ ] DOM manipulation is the most costly operation in a website. React improves these operations by using Virtual DOM (VDOM)
+5. [ ] In React we create react-elements (objects) and react-components (functions)
+6. [ ] When rendered these react-elements and react-components are converted to HTML
+7. [ ] In this lesson we are **using Content Delivery Network (CDN) links** to bring React into our project.
+8. [ ] We will need to use two CDN links , one for the core react functionality and the other for Document Object Model (DOM) manipulation. 
+9. [ ] In code, they are used with the `React` and `ReactDOM` keywords
+10. [ ] This lesson covers the following React methods : 
 	1. [ ] `React.createElement()`
 	2. [ ] `ReactDOM.createRoot()`
 	3. [ ] `render()`
-9. [ ] `React.createElement()`
-	1. [ ] It performs the same function as `document.createElement()`
-	2. [ ] However instead of creating an element, it creates a react-components i.e. an object
-	3. [ ] This method takes three parameter:
-		1. [ ] The element to be created
-		2. [ ] The attributes of the element
-		3. [ ] The content of the element i.e. text or other element(s)
-	4. [ ] In the third parameter we can put text or other elements. 
-	5. [ ] We can put in one element by again writing `React.createElement()` as the parameters value or we can use `[]` to create and array and put multiple `React.createElement()` inside the array. This enables us to create nested elements and sibling elements inside an element.
+
+#### `React.createElement()`
+
+1. [ ] In React, this is used in place of `document.createElement("h1")`
+2. [ ] However, `React.createElement()` does not create html elements, instead it creates an object called a react-element. 
+3. [ ] The syntax is as follows : `React.createElement(Element, {Attributes}, Children);`
+4. [ ] This method takes three parameters : 
+	1. [ ] `Element` : In this parameter we define the element that is to be created, such as `"h1"`, `"span"` etc.
+	2. [ ] `Attributes` : In this parameter we define the attributes of the element such as `id`, `class` etc.
+	3. [ ] `Children` : In this parameter, we define the elements content or its children element(s). If only one item is to be put then we can put it as is, however for multiple items we have to define them using an array i.e. within `[]`
+
+#### `ReactDOM.createRoot()`
+
+1. [ ] `ReactDOM` is used for DOM manipulation
+2. [ ] In React, the `createRoot()` function is used to define the container (HTML element) within which our react elements and components will be rendered, 
+3. [ ] It takes a single parameter which is the element that we wish to be the container for our React code.
+
+#### `render()`
+
+1. [ ] In React, this method is used for rendering the react elements and react components that we created in our code, on to the DOM.
+2. [ ] The rendering is done inside the root container that we created using ` ReactDOM.createRoot()`.
+3. [ ] Rendering replaces any content present within the root container.
+
+**NOTE :** The `render()` method does NOT append to the existing content in the container. However anything outside of the container stays unaffected. To detect rendering issues, it is a standard practice to put the text of `Not rendered` inside the root element.
+
 ----
-#### HTML Template with `Hello World!` message
+
+### Code
+
+#### Basic `Hello World!` message
+
+##### `index.html`
 
 ```
 <!DOCTYPE html>
@@ -33,15 +58,15 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Document</title>
+    <title>React-Revision</title>
 
 </head>
 
 <body>
 
-    <div class="root">
+    <div id="root">
 
-        <h1>Hello world!</h1>
+        <h1>Hello World!</h1>
 
     </div>
 
@@ -50,7 +75,9 @@
 </html>
 ```
 
-#### Creating `<h1>Hello World</u>` using JavaScript
+#### Creating element using JavaScript
+
+##### `index.html`
 
 ```
 <!DOCTYPE html>
@@ -63,13 +90,15 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Document</title>
+    <title>React-Revision</title>
 
 </head>
 
 <body>
 
     <div id="root"></div>
+
+  
 
     <script>
 
@@ -90,7 +119,9 @@
 </html>
 ```
 
-#### Importing React into our project using CDN links : 
+#### Importing React using CDN links
+
+##### `index.html`
 
 ```
 <!DOCTYPE html>
@@ -103,7 +134,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Document</title>
+    <title>React-Revision</title>
 
 </head>
 
@@ -111,16 +142,32 @@
 
     <div id="root"></div>
 
-    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
 
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <script>
+
+        const heading = document.createElement("h1");
+
+        heading.innerHTML = "Hello World!";
+
+  
+
+        const root = document.getElementById("root");
+
+        root.appendChild(heading);
+
+    </script>
 
 </body>
 
 </html>
 ```
 
-#### Render `<h1>Hello World From React</u>` using React
+#### Rendering react-elements
+
+##### `index.html`
 
 ```
 <!DOCTYPE html>
@@ -133,13 +180,15 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Document</title>
+    <title>React-Revision</title>
 
 </head>
 
 <body>
 
-    <div id="root"></div>
+    <div id="root">Not Rendered</div>
+
+  
 
     <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
 
@@ -149,11 +198,9 @@
 
     <script>
 
-        const heading = React.createElement("h1", {}, "Hello World From React!");
+        const heading = React.createElement("h1", {}, "Hello World from React!");
 
         const root = ReactDOM.createRoot(document.getElementById("root"));
-
-  
 
         root.render(heading);
 
@@ -179,70 +226,21 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Document</title>
-
-</head>
-
-<body>
-
-    <div id="root"></div>
-
-    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
-
-    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-
-  
-
-    <script src="./app.js"></script>
-
-</body>
-
-</html>
-```
-
-##### app.js
-
-```
-const heading = React.createElement("h1", {}, "Hello World From React!");
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-
-  
-
-root.render(heading);
-```
-
-
-#### React with CSS - understanding react elements, props and render method
-
-##### `index.html`
-
-```
-<!DOCTYPE html>
-
-<html lang="en">
-
-<head>
-
-    <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Document</title>
-
+    <title>React-Revision</title>
+    
     <link rel="stylesheet" href="./style.css">
 
 </head>
 
 <body>
 
-    <div id="root"></div>
+    <div id="root">Not Rendered</div>
+
+  
 
     <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
 
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-
-  
 
     <script src="./app.js"></script>
 
@@ -264,42 +262,80 @@ root.render(heading);
 ##### `app.js`
 
 ```
-// Creating a react element : an object
+<script>
 
-// The second and third parameter are designated as the props i.e. the attributes and the children/content
+        const heading = React.createElement(
+	        "h1", 
+	        {id : "heading"}, 
+	        "Hello World from React!"
+		);
 
-const heading = React.createElement(
+        const root = ReactDOM.createRoot(document.getElementById("root"));
 
-    "h1",
+        root.render(heading);
 
-    {id : "heading"},
-
-    "Hello World From React!"
-
-);
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-
-  
-
-// render converts react elements (objects) to the required tags and attributes
-
-root.render(heading);
+    </script>
 ```
 
-#### Nested HTML Structure in React 
+#### Nested HTML Structure in React
 
 ##### Target structure
 
 ```
-<div>
-	<div>
-		<h1>Nested h1 tag</h1>
+<div id="parent">
+	<div id="child">
+		<h1 id="nestedHeading">Nested h1 tag</h1>
 	</div>
 </div>
 ```
 
-##### app.js
+##### `index.html`
+
+```
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>React-Revision</title>
+    
+    <link rel="stylesheet" href="./style.css">
+
+</head>
+
+<body>
+
+    <div id="root">Not Rendered</div>
+
+  
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <script src="./app.js"></script>
+
+</body>
+
+</html>
+```
+
+##### `style.css`
+
+```
+#heading{
+
+    color: red;
+
+}
+```
+
+##### `app.js`
 
 ```
 const parent = React.createElement(
@@ -335,7 +371,68 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(parent);
 ```
 
-#### Creating Sibling elements using `[ ]`
+#### Created sibling elements using `[ ]`
+
+##### Target structure
+
+```
+<div id="parent">
+	<div id="child1">
+		<h1 id="firstHeading">Nested h1 tag</h1>
+		<h1 id="secondHeading">Nested h1 tag</h1>
+	</div>
+	<div id="child2">
+		<h1 id="thirdHeading">Nested h1 tag</h1>
+		<h1 id="fourthHeading">Nested h1 tag</h1>
+	</div>
+</div>
+```
+
+##### `index.html`
+
+```
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>React-Revision</title>
+    
+    <link rel="stylesheet" href="./style.css">
+
+</head>
+
+<body>
+
+    <div id="root">Not Rendered</div>
+
+  
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <script src="./app.js"></script>
+
+</body>
+
+</html>
+```
+
+##### `style.css`
+
+```
+#heading{
+
+    color: red;
+
+}
+```
 
 ##### `app.js`
 
@@ -426,3 +523,6 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(parent);
 ```
+
+---
+---

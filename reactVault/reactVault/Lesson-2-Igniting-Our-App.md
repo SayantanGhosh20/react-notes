@@ -246,6 +246,21 @@
 
 **Note :** If we do not modify the script tag by adding `type=module` then we will get the error, `browser scripts cannot have imports or exports.`
 
+##### Target structure
+
+```
+<div id="parent">
+	<div id="child1">
+		<h1 id="firstHeading">Nested h1 tag</h1>
+		<h1 id="secondHeading">Nested h1 tag</h1>
+	</div>
+	<div id="child2">
+		<h1 id="thirdHeading">Nested h1 tag</h1>
+		<h1 id="fourthHeading">Nested h1 tag</h1>
+	</div>
+</div>
+```
+
 ##### `index.html`
 
 ```
@@ -294,8 +309,6 @@
 // Creating a react element : an object
 
 // The second parameter, which is an object contains the attibutes and the third parameter contains the content which can be the elements children
-
-  
 
 import React from "react";
 

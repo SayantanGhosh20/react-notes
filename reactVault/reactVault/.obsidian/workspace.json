@@ -55,16 +55,30 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Scrap.md",
+                "file": "Lesson-3-Laying the foundation.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Scrap"
+              "title": "Lesson-3-Laying the foundation"
+            }
+          },
+          {
+            "id": "53be4dd441fd2fd1",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Scratch.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Scratch"
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -137,7 +151,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Lesson-2-Igniting-Our-App.md",
+                "file": "Scratch.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -147,7 +161,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Lesson-2-Igniting-Our-App"
+              "title": "Backlinks for Scratch"
             }
           },
           {
@@ -156,12 +170,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Lesson-2-Igniting-Our-App.md",
+                "file": "Scratch.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from Lesson-2-Igniting-Our-App"
+              "title": "Outgoing links from Scratch"
             }
           },
           {
@@ -199,13 +213,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Lesson-2-Igniting-Our-App.md",
+                "file": "Scratch.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Lesson-2-Igniting-Our-App"
+              "title": "Outline of Scratch"
             }
           }
         ]
@@ -226,13 +240,14 @@
       "bases:Create new base": false
     }
   },
-  "active": "ddd959810aa0654c",
+  "active": "53be4dd441fd2fd1",
   "lastOpenFiles": [
+    "Lesson-3-Laying the foundation.md",
     "Untitled.md",
-    "Lesson-2-Igniting-Our-App.md",
-    "Scrap.md",
-    "CRA-Project-Structure.png",
+    "Scratch.md",
     "Lesson-1-Inception.md",
+    "Lesson-2-Igniting-Our-App.md",
+    "CRA-Project-Structure.png",
     "Welcome.md"
   ]
 }
