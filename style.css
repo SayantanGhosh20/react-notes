@@ -1,3 +1,129 @@
-#heading{
-    color: red;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
 }
+body{
+    width: 100vw;
+    height: 100vh;
+}
+#root{
+    width: 100%;
+    height: 100%;
+}
+.app{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: orangered;
+}
+.header{
+    width: 100%;
+    height: 80px;
+    background-color: green;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 20px;
+}
+.logoContainer{
+    height: 100%;
+    padding: 10px 0px;
+
+}
+.logo{
+    height: 100%;
+}
+.nav-items{
+    width: 25%;
+    padding: 10px 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: palegreen;
+}
+
+.nav-items ul{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav-items ul li {
+    list-style: none;
+    font-size: 18px;
+}
+.body{
+ width: 100vw;
+ height: 80%;
+ background-color: plum;
+ display: flex;
+ flex-direction: column;
+ justify-content: space-between;
+ align-items: center;
+}
+.searchContainer{
+width: 50vw;
+height: 10%;
+display: flex;
+justify-content: space-between;
+align-content: center;
+}
+.restaurantCardContainer{
+width: 100vw;
+height: 90%;
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+align-content: center;
+background-color: green;
+padding: 10px;
+}
+.res-card{
+    width: 30%;
+    height: 45%;
+    min-width: 570px;
+    min-height: 340px;    
+    background-color: palegoldenrod;
+}
+.res-card-img-container{
+
+}
+.res-card-img{
+
+}
+.res-card-details-container{
+
+}
+.card-left-section{
+
+}
+.res-name{
+
+}
+.res-cuisine{
+
+}
+.cuisine{
+
+}
+.res-details{
+
+}
+.res-details div{
+
+}
+.card-right-section{
+
+}
+.res-star-rating{
+
+}
+
+/* 
+
+ */

@@ -40,7 +40,39 @@
 **NOTE :** The `render()` method does NOT append to the existing content in the container. However anything outside of the container stays unaffected. To detect rendering issues, it is a standard practice to put the text of `Not rendered` inside the root element.
 
 ----
+### React Project Structure (Industry Standard)
 
+```
+src/
+│
+├── components/        # Reusable UI components
+│   ├── Button.jsx
+│   ├── Card.jsx
+│
+├── pages/             # Route-level components
+│   ├── Home.jsx
+│   ├── Dashboard.jsx
+│
+├── layouts/           # Layout wrappers
+│   ├── MainLayout.jsx
+│
+├── hooks/             # Custom hooks
+│   ├── useAuth.js
+│
+├── services/          # API calls
+│   ├── api.js
+│
+├── context/           # Global state
+│   ├── AuthContext.js
+│
+├── utils/             # Helper functions
+│
+├── App.jsx            # Root component
+└── main.jsx           # Entry point
+```
+
+
+---
 ### Code
 
 #### Basic `Hello World!` message
