@@ -1,35 +1,35 @@
 
 ### Overall
 
-1. [ ] React is a JavaScript Library developed by Facebook (no Meta)
-2. [ ] It is bare-bones library but has a very rich ecosystem of official and third party libraries
-3. [ ] The React code we write is converted to JS at the end using transpilation.
-4. [ ] DOM manipulation is the most costly operation in a website. React improves these operations by using Virtual DOM (VDOM)
-5. [ ] In React we create react-elements (objects) and react-components (functions)
-6. [ ] When rendered these react-elements and react-components are converted to HTML
-7. [ ] In this lesson we are **using Content Delivery Network (CDN) links** to bring React into our project.
-8. [ ] We will need to use two CDN links , one for the core react functionality and the other for Document Object Model (DOM) manipulation. 
-9. [ ] In code, they are used with the `React` and `ReactDOM` keywords
-10. [ ] This lesson covers the following React methods : 
-	1. [ ] `React.createElement()`
-	2. [ ] `ReactDOM.createRoot()`
-	3. [ ] `render()`
+1. [x] React is a JavaScript Library developed by Facebook (no Meta)
+2. [x] It is bare-bones library but has a very rich ecosystem of official and third party libraries
+3. [x] The React code we write is converted to JS at the end using transpilation.
+4. [x] DOM manipulation is the most costly operation in a website. React improves these operations by using Virtual DOM (VDOM)
+5. [x] In React we create react-elements (objects) and react-components (functions)
+6. [x] When rendered these react-elements and react-components are converted to HTML
+7. [x] In this lesson we are **using Content Delivery Network (CDN) links** to bring React into our project.
+8. [x] We will need to use two CDN links , one for the core react functionality and the other for Document Object Model (DOM) manipulation. 
+9. [x] In code, they are used with the `React` and `ReactDOM` keywords
+10. [x] This lesson covers the following React methods : 
+	1. [x] `React.createElement()`
+	2. [x] `ReactDOM.createRoot()`
+	3. [x] `render()`
 
 #### `React.createElement()`
 
-1. [ ] In React, this is used in place of `document.createElement("h1")`
-2. [ ] However, `React.createElement()` does not create html elements, instead it creates an object called a react-element. 
-3. [ ] The syntax is as follows : `React.createElement(Element, {Attributes}, Children);`
-4. [ ] This method takes three parameters : 
-	1. [ ] `Element` : In this parameter we define the element that is to be created, such as `"h1"`, `"span"` etc.
-	2. [ ] `Attributes` : In this parameter we define the attributes of the element such as `id`, `class` etc.
-	3. [ ] `Children` : In this parameter, we define the elements content or its children element(s). If only one item is to be put then we can put it as is, however for multiple items we have to define them using an array i.e. within `[]`
+1. [x] In React, this is used in place of `document.createElement("h1")`
+2. [x] However, `React.createElement()` does not create html elements, instead it creates an object called a react-element. 
+3. [x] The syntax is as follows : `React.createElement(Element, {Attributes}, Children);`
+4. [x] This method takes three parameters : 
+	1. [x] `Element` : In this parameter we define the element that is to be created, such as `"h1"`, `"span"` etc.
+	2. [x] `Attributes` : In this parameter we define the attributes of the element such as `id`, `class` etc.
+	3. [x] `Children` : In this parameter, we define the elements content or its children element(s). If only one item is to be put then we can put it as is, however for multiple items we have to define them using an array i.e. within `[]`
 
 #### `ReactDOM.createRoot()`
 
-1. [ ] `ReactDOM` is used for DOM manipulation
-2. [ ] In React, the `createRoot()` function is used to define the container (HTML element) within which our react elements and components will be rendered, 
-3. [ ] It takes a single parameter which is the element that we wish to be the container for our React code.
+1. [x] `ReactDOM` is used for DOM manipulation
+2. [x] In React, the `createRoot()` function is used to define the container (HTML element) within which our react elements and components will be rendered, 
+3. [x] It takes a single parameter which is the element that we wish to be the container for our React code.
 
 #### `render()`
 
@@ -113,41 +113,24 @@ src/
 
 ```
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>React-Revision</title>
-
 </head>
-
 <body>
-
     <div id="root"></div>
-
-  
-
+    
     <script>
-
-        const heading = document.createElement("h1");
-
-        heading.innerHTML = "Hello World!";
-
-  
-
         const root = document.getElementById("root");
 
+        const heading = document.createElement("h1");
+        heading.innerHTML = "Hello World!";
+
         root.appendChild(heading);
-
     </script>
-
 </body>
-
 </html>
 ```
 
