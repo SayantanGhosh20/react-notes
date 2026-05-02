@@ -2,7 +2,7 @@
 
 1. [ ] Components are independent, reusable pieces of code that serve as the building blocks in React.
 2. [ ] There can be two types of components : 
-	1. [ ]  Class based components : 
+	1. [ ] Class based components : 
 		1. [ ] It is the legacy method of creating components using classes.
 		2. [ ] These may be found in legacy projects, or projects that are still transitioning.
 	2. [ ] Functional components : 
@@ -26,12 +26,12 @@ class Card extends React.Component{
 
 1. [ ] These are react components that are created using functions.
 2. [ ] They return JSX code.
-3. [ ] Since in a react script we can use JS, JSX and pure react, thus for a function to be recognized as a React component and not just a function, its name must start with an uppercase letter.
+3. [ ] Since in a react script we can use JS, JSX and pure react, thus for a function to be recognized as a React component and not just a function, its name must start with an **UPPERCASE** letter.
 4. [ ] The functional components can accept arguments because of which we can call a component again and again with different data and thus create different UI components with the same structure.
 5. [ ] For Functional React components : 
 	1. [ ] It returns a **tree of react elements and components** which react then converts to real DOM nodes.
-	2. [ ] The tree can have only a single parent element
-	3. [ ] To avoid having a parent element per component we can use React fragments i.e. `<> </>`. This will make our code cleaner.
+	2. [ ] The tree can have **only a single parent element**
+	3. [ ] To avoid having a parent element per component we can use **React fragments** i.e. `<> </>`. This will make our code cleaner.
 
 #### Returning the following is allowed (single parent) : 
 
@@ -63,22 +63,34 @@ return(
 )
 ```
 
+
 ### Props : Sending data INTO components
 
 1. [ ] It stands for properties
 2. [ ] These refer to arguments that we can dynamically pass to a component
 3. [ ] They are read only inputs passed from parent (caller) to child (component)
 4. [ ] These properties are sent as an object as `key:value` pairs
-5. [ ] They are immutable in nature
-6. [ ] Top → Down flow
-7. [ ] We can pass any number of props we wish to.
-8. [ ] We can also do de-structuring of the props, so instead of writing `(props)` we can do `({name})`
+5. [ ] They are immutable in nature and have a Top → Down flow
+6. [ ] We can pass any number of props we wish to.
+7. [ ] We can also do de-structuring of the props, so instead of writing `(props)` we can do `({name})`
+
+##### `Example 1 :`
 
 ```
 const Card = ({ title }) => <h1>{title}</h1>;
 
 <Card title="Hello World" />
 ```
+
+Under to hood the function above becomes 
+
+```
+const title = "Hello World";
+
+React.createElement("h1", {}, title);
+```
+
+##### `Example 2 :`
 
 ```
 const ButtonComponent = ({label}) => {
@@ -91,12 +103,10 @@ const ButtonComponent = ({label}) => {
 Under to hood the function above becomes 
 
 ```
-React.createElement("h1", {}, title);
+const label = "Sign Up"
 
 React.createElement("button", {}, label);
 ```
-
-**Note :** Here, `title` and `label` are variables
 
 ### Components Composition:
 
@@ -116,14 +126,14 @@ const App = () => {
 };
 ```
 
-### Config/Data driven UI 
+### Config/Data driven UI
 
 1. [ ] This refers to the concept of modifying the UI based on the data that our front-end receives from the backend and/or any other APIs that it might be using.
 2. [ ] This is prominent in applications that have region specific components / component properties.
 
 ### Passing data to components
 
-#### Pre-requisites : 
+#### `Pre-requisites :`
 
 ##### `index.html`
 
@@ -149,28 +159,21 @@ const App = () => {
 </html>
 ```
 
-##### `app.js` 
+##### `app.js`
 
-**Note :** This is the barebones JS script, specified here to avoid repetition throughout the note. All the sub components must be appropriately placed within this code, in order to get a complete and functional code.
+**Note :** This is the barebones JS script, specified here to avoid repetition throughout the note. All the components mentioned in the following section(s), must be appropriately placed within this code, in order to get a complete and functional code.
 
 ```
 import React from "react";
-
 import ReactDOM from "react-dom/client";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 // Put the supporting variables and data here
 
-
-
 // Put the components
 
-  
-
 // Component Composition
-
-  
 
 const ComponentAssembler = () =>{
     return (
@@ -183,11 +186,11 @@ const ComponentAssembler = () =>{
 root.render(<ComponentAssembler />);
 ```
 
-#### Calling Functions : Methods of sending data
+### Calling Functions : Methods of sending data
 
-##### Method 1 : Hardcoding 
+#### Method 1 : Hardcoding
 
-1. [ ] In this method the data is hardcoded and sent
+1. [ ] In this method the data is hardcoded and sent to the target component
 2. [ ] The data is sent as `key:value` pairs, since the target component receives them as an object.
 
 `Props Structure`
@@ -220,7 +223,7 @@ const CardComponent = (props) =>{
  <CardComponent  name = "Christopher Hainz" age =  {22} gender = "Male" />
 ```
 
-##### Method 2 : Dynamic data
+#### Method 2 : Dynamic Data
 
 1. [ ] In this method the data is present in an external variable as an object.
 2. [ ] The data is sent as `key:value` pairs, since the target component receives them as an object.
@@ -265,7 +268,7 @@ const CardComponent = (props) =>{
 <CardComponent  name = {val.name} age =  {val.age} gender = {val.gender} />
 ```
 
-##### Method 3 : Sending the whole object
+#### Method 3 : Sending the whole object
 
 1. [ ] In this method, instead of sending individual data parameters, we pass the object as a whole.
 2. [ ] The data is sent as `key:value` pairs, since the target component receives them as an object.
@@ -310,9 +313,9 @@ const CardComponent = (props) =>{
 <CardComponent {...val} />
 ```
 
-##### Method 4 : Encapsulation
+#### Method 4 : Encapsulation
 
-1. [ ] In this method, the object is encapsulation and then sent as a single object
+1. [ ] In this method, the object is encapsulation and then sent as a single entity
 2. [ ] The data is sent as `key:value` pairs, since the target component receives them as an object.
 
 `Props Structure`
@@ -357,7 +360,7 @@ const CardComponent = (props) =>{
 <CardComponent data={val} />
 ```
 
-##### Method 5 : Data Transformation During Component Call
+#### Method 5 : Data Transformation During Component Call
 
 1. [ ] In this method, data from the object is transformed before sending to the target function.
 2. [ ] If the key in which the transformation takes place has the same name as the original parameter then it will override the data in that parameter. **In this the original number of parameters remain the same.**
@@ -411,11 +414,15 @@ const CardComponent = (props) =>{
 />
 ```
 
+**Note :**
 
-##### Method 6 : External Data Transformation
+1. [ ] Here, `age` is a key that is already present in the `val` object. Thus, it overrides the existing `age` parameter inside the `val` object.
+2. [ ] Here, `salutation` is a new parameter and thus it gets appended to the `props` in the target component
 
-1. [ ] In this method, the object containing the data is transformed outside of the component call. The transformed object is then used in the component call.
+#### Method 6 : External Data Transformation
 
+1. [ ] In this method, the object containing the data is transformed outside of the component call. 
+2. [ ] The transformed object is then used in the component call.
 
 `Props Structure`
 
@@ -467,9 +474,9 @@ const CardComponent = (props) =>{
 <CardComponent {...formattedObj} />
 ```
 
-##### Method 6 : Sending multiple objects
+#### Method 7 : Sending multiple objects
 
-1. [ ] In this method we pass multiple objects when calling the target component
+1. [ ] In this method we pass multiple objects to the target component
 2. [ ] Among the ones passed, if multiple objects contain the same parameter then the parameter in the former object is overwritten by the later object.
 
 `Props Structure`
@@ -528,7 +535,7 @@ Inside the system React does the following :
 }
 ```
 
-##### Method 7 : Sending multiple objects as a single encapsulation
+#### Method 8 : Sending multiple objects in a single encapsulation
 
 1. [ ] In this method, multiple objects are sent as a single object prop using encapsulation
 2. [ ] Even if the encapsulated objects have the same parameters, they are not merged
@@ -594,9 +601,9 @@ const CardComponent = (props) =>{
 <CardComponent data = {{val1, val2}} />
 ```
 
-##### Method 8 : Sending multiple objects with separate encapsulations
+#### Method 9 : Sending multiple objects with separate encapsulations
 
-1. [ ] In this each prop is encapsulated separately
+1. [ ] In this each object that is being sent to the target component is encapsulated separately
 
 `Props Structure`
 
@@ -654,9 +661,9 @@ const CardComponent = (props) =>{
 <CardComponent data1={val} data2={val} />
 ```
 
-##### Method 9 : Hybrid of encapsulation and non-encapsulation
+#### Method 10 : Hybrid of encapsulation and non-encapsulation
 
-1. [ ] In this method we push some objects as is while the others are encapsulated
+1. [ ] In this method we push some of the objects as is while the others are encapsulated
 
 `Props Structure`
 
@@ -713,9 +720,10 @@ const CardComponent = (props) =>{
 <CardComponent {...val1} data = {val2}/>
 ```
 
-##### Method 10 : De-structuring arguments
+#### Method 11 : De-structuring arguments
 
-1. [ ] De-structuring is the process of separating the parameters received by a component.
+1. [ ] De-structuring is the process of separating the parameters received 
+2. [ ] In this we are using the de-structuring concept in the target components props.
 
 `Props Structure`
 
@@ -766,10 +774,10 @@ const CardComponent = ({name, age, gender, data}) =>{
 <CardComponent {...val1} data = {val2}/>
 ```
 
-##### Method 11 : Conditional arguments and Default parameter values
+#### Method 12 : Conditional arguments and Default parameter values
 
-1. [ ] We can set conditions that when satisfied will forward the data objects to the target component.
-2. [ ] If a component does not receive data appropriately then we can setup default values that the component can fallback on.
+1. [ ] We can **set conditions** that when satisfied will forward the data objects to the target component.
+2. [ ] If a component does not receive data appropriately then we can setup **default values** that the component can fallback on.
 
 `Props Structure`
 
@@ -813,7 +821,14 @@ const CardComponent = ({name = "Richard Kross", age = 58, gender = "Male"}) => {
 <CardComponent {...(flag && val)} />
 ```
 
-##### Method 12 : Centralizing default parameter values
+**Note :**
+
+1. [ ] In this code the value of the `flag` variable is set to `true`. Thus when calling the component the condition becomes `flag && val` where flag is `true` and `val` is the data object. Thus `val` is passed
+2. [ ] If the value of the `flag` variable was set to `false`, then when calling the component the condition becomes `flag && val` where flag is `false` and `val` is the data object. Thus the data object (`val`) **IS NOT PASSED**. The result thus, **uses the default values** that we have set in the target component.
+
+#### Method 13 : Centralizing default parameter values
+
+1. [ ] In this we are putting the default parameters in a separate object so that we can re-use it as well as don't have to set the values manually in the components.
 
 `Props Structure`
 
@@ -859,29 +874,30 @@ const CardComponent = (props) => {
 };
 ```
 
-`app.js` - Calling Component
+`app.js` - Calling Component (Without arguments)
 
 ```
 <CardComponent />
 ```
 
-`Additional Notes :`
+`app.js` - Calling Component (With arguments)
 
 ```
-We can replace, const { name, age, gender } = { ...defaultUser, ...props };
-With, const componentProps = { ...defaultUser, ...props};
-
-In both the aboce cases, the result is defaultUser + props. The common parameters present in both are overwritten by props resulting in only the absent parameters to have the default values.
-
-In the first case we can user the parameters name, age, gender directly.
-In the second case we have to use componentProps.name, componentProps.age, componentProps.gender
+<CardComponent {...val}/>
 ```
 
-##### Method 13 : Special React prop `children`
+**Notes :**
+
+1. [ ] We can replace, `const { name, age, gender } = { ...defaultUser, ...props };` With, `const componentProps = { ...defaultUser, ...props};`
+2. [ ] In both the above cases, the result is defaultUser + props. The common parameters present in both are overwritten by props resulting in only the absent parameters to have the default values.
+3. [ ] In the first case we can user the parameters name, age, gender directly.
+4. [ ] In the second case we have to use `componentProps.name`, `componentProps.age`, `componentProps.gender`.
+
+#### Method 14 : Special React prop `children`
 
 1. [ ] `children` is a special React prop
 2. [ ] It represents the content that is present between the starting and ending tags of a component i.e. `<Component> </Component>`
-3. [ ] Props work when structure is fixed, but when we wish to use not only dynamic data but also dynamic structure 
+3. [ ] Props work when structure is fixed, but when we wish to use not only dynamic data but also dynamic structure.
 
 `Output structure`
 
@@ -913,7 +929,7 @@ const ComponentAssembler = () =>{
 }
 ```
 
-##### Method 14 : Combining all the features so far
+#### Method 15 : Combining all the features so far
 
 1. [ ] Here we are using JSX 
 2. [ ] We are using functional components and their displaying their reusability
@@ -955,6 +971,8 @@ const val = {
     age : 23,
     gender : "Male"
 };
+
+
 
 const structure1 = ({ name, age, gender }) => (  
 	<>  
@@ -1021,7 +1039,7 @@ const ComponentAssembler = () => {
 )
 ```
 
-##### Method 15 : Using Loops
+#### Method 16 : Using Loops
 
 `app.js` - Variables
 
@@ -1066,13 +1084,14 @@ const dataObj = [
 const CardComponent = (props) =>{
     const {data} = props;
     const {id, name, age, gender} = data;
+    
     return (
-    <div className="cardWrapper">
-      <div className="cardParameter">{name}</div>
-      <div className="cardParameter">{age}</div>
-      <div className="cardParameter">{gender}</div>
-    </div>
-  );
+	    <div className="cardWrapper">
+	      <div className="cardParameter">{name}</div>
+	      <div className="cardParameter">{age}</div>
+	      <div className="cardParameter">{gender}</div>
+		</div>
+  );
 };
 ```
 
@@ -1083,7 +1102,9 @@ const ComponentAssembler = () =>{
     return(
         <>
             {
-            dataObj.map(profile => <CardComponent key={profile.id} data={profile} />)
+	            dataObj.map(profile => 
+		            <CardComponent key={profile.id} data={profile} />
+				)
             }
         </>
     )
@@ -1096,9 +1117,7 @@ const ComponentAssembler = () =>{
 2. [ ] Using key, react avoids re-rendering all the components and re-renders only the necessary ones.
 3. [ ] React officially says that we should NOT use indexes for keys and calls it a anti-pattern and thus a BAD practice.
 
-
----
-#### Note :
+### Note : 
 
 1. [ ] `<Card {...val} />` creates new object reference every render. This affects : 
 	1. [ ] `React.memo`
